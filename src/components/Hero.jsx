@@ -23,8 +23,8 @@ export default function Hero() {
 
       <div className="container relative grid items-center gap-12 py-20 lg:grid-cols-2 lg:py-28">
         <div>
-          <span className="inline-flex items-center gap-2 rounded-full border border-brand-100 bg-white/80 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-brand-600 shadow-sm backdrop-blur">
-            <ShieldCheck className="h-4 w-4 text-brand-500" />
+          <span className="inline-flex items-center gap-1.5 whitespace-nowrap rounded-full border border-brand-100 bg-white/80 px-3 py-1.5 text-[0.6rem] font-semibold uppercase tracking-[0.06em] text-brand-600 shadow-sm backdrop-blur sm:gap-2 sm:px-4 sm:text-xs sm:tracking-[0.18em]">
+            <ShieldCheck className="h-3.5 w-3.5 shrink-0 text-brand-500 sm:h-4 sm:w-4" />
             {business.name} · {business.location}
           </span>
 
@@ -39,18 +39,18 @@ export default function Hero() {
 
           <p className="mt-6 max-w-xl text-lg text-brand-600">{business.subtagline}</p>
 
-          <div className="mt-8 flex flex-wrap items-center gap-4">
-            <a href={business.phoneHref} className="btn-primary text-base">
+          <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center">
+            <a href={business.phoneHref} className="btn-primary w-full text-base sm:w-auto">
               <Phone className="h-5 w-5" />
               Call {business.phone}
             </a>
-            <Link to="/our-doctors" className="btn-ghost text-base">
+            <Link to="/our-doctors" className="btn-ghost w-full text-base sm:w-auto">
               Meet Our Doctors
               <ArrowRight className="h-5 w-5" />
             </Link>
           </div>
 
-          <ul className="mt-10 flex flex-wrap items-center gap-x-7 gap-y-3 border-t border-brand-100 pt-6">
+          <ul className="mt-10 flex flex-wrap items-center justify-center gap-x-5 gap-y-3 border-t border-brand-100 pt-6 sm:justify-start sm:gap-x-7">
             {trust.map(({ icon: Icon, label }) => (
               <li
                 key={label}
