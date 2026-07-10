@@ -1,0 +1,10 @@
+# Drop real image assets in this folder.
+#
+# Expected files (referenced by the app's placeholders):
+#   logo.png          -> Navbar logo + favicon
+#   hero.jpg          -> Hero background image
+#   dr-avarbock.jpg   -> Dr. Andrew Avarbock headshot
+#   dr-chamorro.jpg   -> Dr. Paola Chamorro headshot
+#   map.jpg           -> Contact section map / office photo
+#
+# Files here are served from the site root, e.g. /contents/hero.jpg

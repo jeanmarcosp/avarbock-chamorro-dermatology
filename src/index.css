@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    /* offset anchor scroll targets so the sticky navbar doesn't cover them */
+    scroll-padding-top: 5rem;
+  }
+  body {
+    @apply bg-white text-brand-900 font-sans antialiased;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display tracking-tight;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full px-6 py-3 text-sm font-semibold transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2;
+  }
+  .btn-primary {
+    @apply btn bg-brand-500 text-white hover:bg-brand-600 focus-visible:ring-brand-500;
+  }
+  .btn-secondary {
+    @apply btn bg-brand-900 text-white hover:bg-brand-800 focus-visible:ring-brand-900;
+  }
+  .btn-outline {
+    @apply btn border border-white/40 text-white hover:bg-white/10 focus-visible:ring-white;
+  }
+  .btn-ghost {
+    @apply btn border border-brand-200 bg-white text-brand-700 hover:border-brand-300 hover:bg-brand-50 focus-visible:ring-brand-500;
+  }
+  .section {
+    @apply py-16 sm:py-20 lg:py-24;
+  }
+  .eyebrow {
+    @apply inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-brand-500;
+  }
+}
