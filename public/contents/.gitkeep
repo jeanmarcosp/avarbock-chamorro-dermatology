@@ -1,7 +1,7 @@
 # Drop real image assets in this folder.
 #
 # Expected files (referenced by the app's placeholders):
-#   logo.png          -> Navbar logo + favicon
+#   logo.png          -> Navbar logo (favicon lives at public/favicon.svg)
 #   hero.jpg          -> Hero background image
 #   dr-avarbock.jpg   -> Dr. Andrew Avarbock headshot
 #   dr-chamorro.jpg   -> Dr. Paola Chamorro headshot

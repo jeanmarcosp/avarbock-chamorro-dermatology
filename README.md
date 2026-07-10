@@ -26,7 +26,7 @@ commented with the exact `/contents/<filename>` path it expects:
 
 | File                     | Used for                        |
 | ------------------------ | ------------------------------- |
-| `logo.png`               | Navbar logo + favicon           |
+| `logo.png`               | Navbar logo (favicon is `public/favicon.svg`) |
 | `hero.jpg`               | Hero background image           |
 | `dr-avarbock.jpg`        | Dr. Andrew Avarbock headshot    |
 | `dr-chamorro.jpg`        | Dr. Paola Chamorro headshot     |
