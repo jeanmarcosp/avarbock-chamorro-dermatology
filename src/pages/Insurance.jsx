@@ -1,9 +1,17 @@
-import { Video, MapPin, Phone, ShieldCheck } from 'lucide-react'
+import { useState } from 'react'
+import { Video, MapPin, Phone, ShieldCheck, ChevronDown } from 'lucide-react'
 import PageHeader from '../components/PageHeader'
 import CTASection from '../components/CTASection'
 import { insurance, business } from '../data/content'
 
+// Number of plans shown before the list collapses behind a toggle.
+const PREVIEW_COUNT = 8
+
 export default function Insurance() {
+  const [expanded, setExpanded] = useState(false)
+  const visiblePlans = expanded ? insurance.plans : insurance.plans.slice(0, PREVIEW_COUNT)
+  const hiddenCount = insurance.plans.length - PREVIEW_COUNT
+
   return (
     <>
       <PageHeader
@@ -18,11 +26,16 @@ export default function Insurance() {
         <div className="container grid gap-12 lg:grid-cols-2 lg:items-start">
           {/* Accepted plans */}
           <div className="rounded-2xl border border-brand-100 bg-white p-8">
-            <h2 className="text-sm font-semibold uppercase tracking-wide text-brand-500">
-              Accepted Insurance Plans
-            </h2>
+            <div className="flex items-baseline justify-between gap-4">
+              <h2 className="text-sm font-semibold uppercase tracking-wide text-brand-500">
+                Accepted Insurance Plans
+              </h2>
+              <span className="text-xs font-medium text-brand-400">
+                {insurance.plans.length} plans
+              </span>
+            </div>
             <ul className="mt-5 grid gap-3 sm:grid-cols-2">
-              {insurance.plans.map((plan) => (
+              {visiblePlans.map((plan) => (
                 <li
                   key={plan}
                   className="rounded-xl border border-brand-100 bg-brand-50 px-4 py-3 text-sm font-semibold text-brand-800"
@@ -31,7 +44,25 @@ export default function Insurance() {
                 </li>
               ))}
             </ul>
-            <p className="mt-6 text-sm leading-relaxed text-brand-600">{insurance.note}</p>
+
+            {hiddenCount > 0 && (
+              <button
+                type="button"
+                onClick={() => setExpanded((v) => !v)}
+                aria-expanded={expanded}
+                className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-600 transition-colors hover:text-brand-500"
+              >
+                {expanded ? 'Show fewer' : `Show all ${insurance.plans.length} plans`}
+                <ChevronDown
+                  className={`h-4 w-4 transition-transform ${expanded ? 'rotate-180' : ''}`}
+                  aria-hidden="true"
+                />
+              </button>
+            )}
+
+            <p className="mt-6 border-t border-brand-100 pt-6 text-sm leading-relaxed text-brand-600">
+              {insurance.note}
+            </p>
             <a href={business.phoneHref} className="btn-primary mt-6">
               <Phone className="h-4 w-4" />
               Verify your coverage
